@@ -1,23 +1,24 @@
 # DESIGN.md — Luis Echarri Personal Site
 
-## Style Direction: "Modern Slate"
-Editorial-minimal, styled after haleygdavidson.com (large confident typography,
+## Style Direction: "Confident Navy" (switched from "Modern Slate" 2026-08-29 — user preference)
+Editorial-minimal structure carried over (large confident typography,
 one asymmetric visual moment, generous whitespace, no symmetric card grids),
 structured after jennseo.com (nav/hero/stats/services/case-studies/contact flow).
 Checked against `anti-ai-design`: no neon, no gradient text/fills, no glow,
-single accent used sparingly.
+single accent used sparingly. Navy ink (trust/stability) + muted brass accent
+(growth signal, not gold/neon) on warm off-white.
 
 ## Color
 | Token | Hex | Meaning |
 |---|---|---|
-| `--ink` | `#2A2F33` | charcoal-slate — focus/clarity, primary text |
-| `--accent` | `#B85C3E` | muted rust — decorative/non-text emphasis only (fails WCAG AA as text or text-bearing background; use `--accent-text` for those), ≤20% of composition |
-| `--accent-text` | `#A24F35` | darker rust — accent color for text and text-bearing button backgrounds (`.eyebrow`, `.btn-primary`); 5.11:1 against `--bg`, passes WCAG AA |
-| `--accent-on-dark` | `#D98A6A` | lighter rust — accent text on `--ink` backgrounds only (e.g. dark card eyebrows); 5.02:1 against `--ink`, passes WCAG AA |
-| `--bg` | `#F4F3F0` | cool-neutral off-white — never pure white |
-| `--soft` | `#EAE8E4` | tinted surface for stat bars / soft cards |
-| `--rule` | `rgba(42,47,51,.35)` | hairline borders/dividers — visible as an intentional line, not just decorative |
-| `--shadow` | `rgba(42,47,51,.12)` | warm-tinted shadow, never cold black |
+| `--ink` | `#1C2A3A` | deep navy — trust/stability, primary text |
+| `--accent` | `#B8853A` | muted brass — decorative/non-text emphasis only (fails WCAG AA as text or text-bearing background at this weight; use `--accent-text` for those), ≤20% of composition |
+| `--accent-text` | `#856024` | darker brass — accent color for text and text-bearing button backgrounds (`.eyebrow`, `.btn-primary`); 5.36:1 against `--bg`, passes WCAG AA |
+| `--accent-on-dark` | `#C99752` | lighter brass — accent text on `--ink` backgrounds only (e.g. dark card eyebrows); 5.57:1 against `--ink`, passes WCAG AA |
+| `--bg` | `#FAF8F4` | warm off-white — never pure white |
+| `--soft` | `#EFEBDF` | tinted surface for stat bars / soft cards |
+| `--rule` | `rgba(28,42,58,.35)` | hairline borders/dividers — visible as an intentional line, not just decorative |
+| `--shadow` | `rgba(28,42,58,.12)` | ink-tinted shadow, never cold black |
 
 ## Typography
 - Display/headings: **Fraunces** (Google Fonts, opsz axis) — characterful serif,
@@ -31,6 +32,16 @@ single accent used sparingly.
 - One asymmetric element per page (an offset rule line, an unevenly-weighted
   card row) — no perfectly symmetric card grids
 - Shadows appear only on hover/interaction, never at rest
+- **Fixed 2026-08-29 (user flagged the site as reading "empty"/"sparse"):**
+  content-heavy sections (card grids, experience lists) use the full container
+  width or close to it (`.skills-grid` full width, About's Experience list
+  capped at 820px, Services' card row uncapped) — never squeeze substantial
+  content into the 640px prose column. Prose-only sections (hero intro,
+  Education) use 720px, wide enough to avoid feeling cramped without hurting
+  readability. Home's hero is a two-column `.hero-grid` (text + a real
+  `.hero-panel` of career facts, not decorative filler) instead of a single
+  narrow column with empty space beside it — since there's no photo yet, real
+  content does the job of filling the frame.
 
 ## Components
 - `.btn-primary` — accent background, bg-colored text
