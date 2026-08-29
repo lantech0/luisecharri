@@ -56,7 +56,7 @@ a{color:var(--ink);}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
 .nav-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem 1rem;min-height:64px;padding:.75rem 0;}
-.nav-links{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem 1.5rem;}
+.nav-links{display:flex;align-items:center;flex-wrap:wrap;gap:2rem;}
 
 .stats-bar{display:flex;}
 .stat-item{flex:1;border-right:1px solid var(--rule);}
