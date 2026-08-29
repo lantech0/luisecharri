@@ -17,9 +17,9 @@
   }
 
   var navHTML = '<nav aria-label="Main navigation" style="position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--rule);">'
-    + '<div class="container" style="display:flex;align-items:center;justify-content:space-between;height:64px;">'
+    + '<div class="container nav-inner">'
       + '<a href="/" style="font-family:\'Fraunces\',Georgia,serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;">Luis Echarri</a>'
-      + '<div style="display:flex;align-items:center;gap:2rem;">'
+      + '<div class="nav-links">'
         + link('/', 'Home')
         + link('/about', 'About')
         + link('/services', 'Services')
