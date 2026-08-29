@@ -13,13 +13,17 @@ A personal credibility site for Luis, positioned as **Growth Strategist**. Phase
 ## Visual Identity
 Distinct from CopperBuilds — own palette and typography, not the copper/green wordmark system (which is locked to the CopperBuilds brand). Same quality bar and professional tone, but its own `DESIGN.md` as source of truth, built via the `frontend-design` skill.
 
+## Structural Reference
+Layout/section structure is modeled on jennseo.com (nav + CTA button, photo hero with floating stat-card overlays, stats bar, "What I Do" services section, case studies, contact) — but **not** its dark/gold visual style. Our own `DESIGN.md` palette and typography apply throughout; jennseo.com is a layout reference only.
+
 ## Content — Single Page
-1. **Hero** — positioning headline: "Growth Strategist"
-2. **About / bio** — who Luis is, what he does
-3. **What I Do** — SEO + growth strategy; CopperBuilds/GHL automation/SMM management mentioned as delivery channels, not as separate portfolio sections
-4. **Work Samples** — links to live sites Luis has built/worked on (e.g. CopperBuilds). No quantified metrics in this phase — real numbers aren't verified yet. (Future: swap in real Ahrefs data once pulled and verified.)
-5. **How I Work** — short process/methodology section, substituting for case-study proof
-6. **Contact CTA**
+1. **Hero** — positioning headline: "Growth Strategist", photo, nav, CTA button (structure per jennseo.com)
+2. **Stats/credibility bar** — non-fabricated facts only (e.g. years active, ventures run) — no invented metrics
+3. **About / bio** — who Luis is, what he does
+4. **What I Do** — SEO + growth strategy; CopperBuilds/GHL automation/SMM management mentioned as delivery channels, not as separate portfolio sections
+5. **Work Samples** — links to live sites Luis has built/worked on (e.g. CopperBuilds), styled like a case-studies section. No quantified metrics in this phase — real numbers aren't verified yet. (Future: swap in real Ahrefs data once pulled and verified.)
+6. **How I Work** — short process/methodology section, substituting for case-study proof
+7. **Contact CTA**
 
 ## Build Process (reuses CopperBuilds workflow)
 - `frontend-design` skill invoked before any frontend code, every session
