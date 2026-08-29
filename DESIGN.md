@@ -31,7 +31,7 @@ single accent used sparingly. Navy ink (trust/stability) + muted brass accent
 - Max content width: 1080px, centered
 - One asymmetric element per page (an offset rule line, an unevenly-weighted
   card row) — no perfectly symmetric card grids
-- Shadows appear only on hover/interaction, never at rest
+- Shadows appear only on hover/interaction, never at rest — **exception (2026-08-30, user-directed):** the Home hero panel uses a permanent solid offset "floating card" shadow (`--accent-text` block shadow, not a soft blur) as a deliberate dynamism device, modeled after jennseo.com's floating stat badges. This is the one intentional break from the rule — don't extend it to other cards without the same reasoning.
 - **Fixed 2026-08-29 (user flagged the site as reading "empty"/"sparse"):**
   content-heavy sections (card grids, experience lists) use the full container
   width or close to it (`.skills-grid` full width, About's Experience list
