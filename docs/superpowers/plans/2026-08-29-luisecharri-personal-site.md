@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build and deploy a 5-page static credibility site for Luis Echarri, positioned as "Growth Strategist," live at `luisecharri.pages.dev`.
+**Goal:** Build and deploy a 5-page static job-application portfolio site for Luis Antonio Echarri Jr, positioned as "SEO Specialist," live at `luisecharri.pages.dev`. Real purpose: applications to hiring agencies — see spec's 2026-08-29 Purpose revision.
 
 **Architecture:** Static HTML/CSS/JS, no framework, no build step. Shared nav/footer injected via JS with a `<noscript>` fallback (same pattern as `copperbuilds/js/nav.js`). One CSS token system (`Modern Slate`) drives every page. Copy is produced live during execution via the three-layer copy framework, not pre-written in this plan.
 
@@ -14,8 +14,10 @@
 
 - Static HTML/CSS/JS only — no framework, no build step (spec: Stack & Hosting)
 - Palette is locked: ink `#2A2F33`, accent `#B85C3E` (≤20% of composition, CTAs/emphasis only), background `#F4F3F0` — no dark mode, no palette switcher (spec: Visual Identity, Out of Scope)
-- No fabricated stats or metrics anywhere — facts only, or omit (spec: Home, Work)
+- No fabricated stats or metrics anywhere — every fact traces to `job-hunter/profile/profile.md` or the spec's confirmed Contact block (spec: Home, Work, Success Criteria)
 - No photo in the hero — text-led — until a real photo is supplied (spec: Home)
+- **Zero mentions of CopperBuilds, GHL Automation, or SMM as ventures Luis runs — anywhere, on any page** (spec: Purpose, Out of Scope, Success Criteria). This is the single most important constraint in this revision — verify with grep before marking any page done.
+- Work page ships with no sample-work cards — structure/process content only, samples deferred (spec: Content, Out of Scope)
 - 5 pages only: Home, About, Services, Work, Contact — shared nav/footer with noscript fallback (spec: Content, Success Criteria)
 - Every page must pass `/vale-check` before being marked done (spec: Build Process)
 - Security headers (`_headers`) mandatory at build time, verified live via `curl -sI` (spec: Success Criteria)
@@ -46,50 +48,93 @@ Each HTML page owns only its `<main>` content — nav/footer are shared via `js/
 
 ---
 
-## Task 1: Content Brief — Gather Real Inputs
+## Task 1: Content Brief — Extract Real Facts from the Resume
 
 **Files:**
 - Create: `luisecharri/content-brief.md`
+- Read (source, do not modify): `job-hunter/profile/profile.md` (path relative to `LantechAI/` root — from the worktree this is `../../../job-hunter/profile/profile.md`)
 
 **Interfaces:**
-- Produces: the facts every later copy task (Tasks 6–10) pulls from — positioning, ventures, contact method, work-sample links, bio facts. No later task may invent a fact not present here.
+- Produces: the facts every later copy task (Tasks 7–11) pulls from — positioning, bio, skills, contact. No later task may invent a fact not present here. All open questions from the original brief were resolved by Luis directly in chat on 2026-08-29 — nothing left to ask.
 
-- [ ] **Step 1: Write the known facts into the brief**
+- [ ] **Step 1: Read `job-hunter/profile/profile.md` in full**
+
+- [ ] **Step 2: Write content-brief.md, transcribing only what's in profile.md plus the confirmed contact block below — no invented facts, no rounding/embellishing**
 
 ```markdown
-# Content Brief — Luis Echarri Personal Site
+# Content Brief — Luis Echarri Personal Site (SEO Specialist portfolio)
 
-## Known facts
-- Name: Luis Echarri
-- Positioning: Growth Strategist
-- Ventures (delivery channels, not separate portfolios):
-  - CopperBuilds — web agency (https://copperbuilds.com/)
-  - GHL Automation — CRM/automation systems for trades & home services
-  - SMM — social media management for clients
-- Work samples confirmed live: CopperBuilds (https://copperbuilds.com/)
-- No photo supplied yet — hero is text-led
-- No quantified metrics available yet (Ahrefs data pull deferred) — Work page uses process/methodology, not stats
+## Positioning
+SEO Specialist (matches target roles in profile.md: SEO Specialist / SEO Auditor /
+Technical SEO Analyst, Internet/Lead Researcher, On-Page SEO Analyst)
 
-## Open questions — ASK THE USER, do not assume
-1. Contact method for the Contact page: reuse the CopperBuilds contact (luis.copperbuilds@gmail.com / +63 977 329 3969) or a different personal email/number?
-2. Bio facts for the About page: background, years in SEO/growth work, how you got into it, anything you want surfaced (do not invent — leave blank if unanswered and flag to the user before Task 8)
-3. Any additional live work samples beyond CopperBuilds (a luisghl.com site, an SMM client site) to link on the Work page?
-4. Social links to include (LinkedIn, Facebook, etc.) — which ones are current and OK to publish?
+## Professional summary (from profile.md, use near-verbatim)
+SEO specialist and internet researcher with 7+ years of continuous experience
+(2019–present) auditing websites, resolving on-page SEO issues, and researching
+business decision-makers for outreach and lead generation. Background in
+technical customer support with a track record of problem resolution and
+clear communication.
+
+## Work experience (real, chronological — most recent first)
+1. SEO Auditor / Internet Researcher — Salience (Apr 2022 – Aug 2026, most
+   recent past role — phrase as past, not current: last day 2026-08-28)
+   - Full end-to-end technical/on-page/competitive audits using Ahrefs,
+     Screaming Frog, Siteliner, BuzzSumo, Link Research Tools, Searchmetrics,
+     Google Analytics, PageSpeed Insights, Google Trends
+   - Delivered audit reports via Dropbox/Google Drive; managed deadlines in
+     Asana, coordinated via Slack
+   - Identified decision-makers via LinkedIn Sales Navigator, validated
+     contact data with Skrapp/Excel, delivered upload-ready lead lists
+2. SEO Specialist (On-Page) — BIG Catch Digital (Jan 2019 – Mar 2022)
+   - Audited/resolved duplicate, missing, truncated title tags and meta
+     descriptions; fixed missing/duplicate H1 tags
+   - Built and optimized local citations; optimized Google Business Profile
+     listings for local/map-pack visibility
+3. Tier 2 Technical Support — Convergys (Time Warner Cable) (Oct 2012 – Dec 2016)
+   - Diagnosed connectivity issues, scheduled dispatches, updated CRM records
+   - Identified upsell opportunities during support calls
+
+## Skills & tools (real, from profile.md)
+- SEO & Analytics: Screaming Frog, Siteliner, BuzzSumo, Searchmetrics, Link
+  Research Tools, Ahrefs, Google Analytics, Google Trends, PageSpeed Insights
+- Website Development: WordPress — builds and launches full sites from scratch
+- Lead Research: LinkedIn Sales Navigator, Skrapp, Excel data validation
+- Content & Design: Canva, Adobe Premiere Pro, social media profile optimization
+
+## Education
+- BS Information Technology — Northern Negros State College of Science & Technology (2007–2011)
+- BS Secondary Education — La Carlota City College (2018–2019)
+
+## Contact (confirmed by Luis 2026-08-29 — use exactly)
+- Email: valuisantonioecharrijr@gmail.com
+- Phone: +63 977 329 3969
+- LinkedIn: https://www.linkedin.com/in/luisecharri/
+
+## Explicit exclusions — DO NOT mention anywhere on the site
+- CopperBuilds, GHL Automation, SMM management, or any other venture Luis
+  runs. Ruled out 2026-08-29: reads as a flight-risk/conflict-of-interest
+  signal to a hiring agency. This applies to every page, not just Work.
+
+## Work samples
+None yet — deferred. Luis will provide real sample work in a follow-up
+session. Task 10 (Work page) ships with process/methodology content only,
+no sample cards, no substitute content standing in for real samples.
+
+## Photo
+None supplied — hero and every page stay text-led.
 ```
 
-- [ ] **Step 2: Ask the user the 4 open questions directly in chat, record real answers into the file (never invent an answer)**
+- [ ] **Step 3: Verify every fact in content-brief.md traces to profile.md or the confirmed contact block — no invention**
 
-- [ ] **Step 3: Verify the brief has no unanswered required field**
-
-Append an "## Answers" section under Step 2's edits. Q1 (contact method), Q2 (bio facts), and Q3 (work-sample links) are required — they gate Tasks 8, 10, and 11 respectively and must not be blank. Q4 (social links) is optional — record it if answered, but a blank Q4 does not block this task or any other.
-Expected: Q1, Q2, Q3 all have non-blank answers.
+Run: `grep -c "CopperBuilds\|GHL\|SMM" content-brief.md`
+Expected: `1` (only the one line under "Explicit exclusions" naming them as excluded — if any other line mentions them, that's a leak, fix it)
 
 - [ ] **Step 4: Commit**
 
 ```bash
 cd luisecharri
 git add content-brief.md
-git commit -m "docs: content brief with real facts for site copy"
+git commit -m "docs: content brief extracted from verified resume (profile.md)"
 ```
 
 ---
@@ -444,7 +489,7 @@ git commit -m "feat: add mandatory security headers for Cloudflare Pages"
 - Consumes: `css/style.css` tokens/classes (Task 2), `js/nav.js` / `js/footer.js` (Task 5), facts from `content-brief.md` (Task 1)
 - Produces: the live `index.html` Task 12's link-check and QA gate verifies
 
-**SEO seed** (Layer 1 — establish before writing copy): primary target `Luis Echarri — Growth Strategist`; secondary `SEO growth strategy consultant`. H1 and first paragraph must contain or directly support this seed.
+**SEO seed** (Layer 1 — establish before writing copy): primary target `Luis Echarri — SEO Specialist`; secondary `SEO Auditor & Internet Researcher`. H1 and first paragraph must contain or directly support this seed. **No mention of CopperBuilds/GHL/SMM anywhere on this page — see Global Constraints.**
 
 - [ ] **Step 1: Write the HTML skeleton with real structure (nav/footer includes, noscript fallback, section scaffolding)**
 
@@ -454,7 +499,7 @@ git commit -m "feat: add mandatory security headers for Cloudflare Pages"
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Luis Echarri — Growth Strategist</title>
+<title>Luis Echarri — SEO Specialist</title>
 <meta name="description" content="<!-- COPY: 1-sentence meta description, SEO seed + positioning, ~155 chars -->">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -475,24 +520,24 @@ git commit -m "feat: add mandatory security headers for Cloudflare Pages"
 
 <main>
   <section class="container" style="padding:4rem 0 3rem;max-width:640px;">
-    <span class="eyebrow">Growth Strategist</span>
+    <span class="eyebrow">SEO Specialist</span>
     <h1><!-- COPY: headline, must contain SEO seed --></h1>
-    <p><!-- COPY: 2-3 sentence subhead, references CopperBuilds/GHL/SMM as delivery channels per content-brief.md --></p>
+    <p><!-- COPY: 2-3 sentence subhead, from content-brief.md's Professional Summary — technical audits, on-page fixes, decision-maker research. No venture/business language. --></p>
     <div style="display:flex;gap:.85rem;flex-wrap:wrap;">
-      <a class="btn btn-primary" href="/work">See the Work</a>
-      <a class="btn btn-ghost" href="/contact">Get in Touch</a>
+      <a class="btn btn-primary" href="/contact">Get in Touch</a>
+      <a class="btn btn-ghost" href="/about">See My Experience</a>
     </div>
   </section>
 
   <section class="container" style="display:flex;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--soft);padding:0;margin:2rem auto 0;">
     <div style="flex:1;padding:1.25rem 1.5rem;border-right:1px solid var(--rule);">
-      <strong>CopperBuilds</strong><br><!-- COPY: one line, from content-brief.md -->
+      <strong>7+ Years</strong><br><!-- COPY: one line, "SEO & Research Experience (2019–Present)" per content-brief.md -->
     </div>
     <div style="flex:1;padding:1.25rem 1.5rem;border-right:1px solid var(--rule);">
-      <strong>GHL Automation</strong><br><!-- COPY: one line, from content-brief.md -->
+      <strong>Salience</strong><br><!-- COPY: one line, "SEO Auditor & Internet Researcher, 2022–2026" per content-brief.md -->
     </div>
     <div style="flex:1;padding:1.25rem 1.5rem;">
-      <strong>SMM</strong><br><!-- COPY: one line, from content-brief.md -->
+      <strong>BIG Catch Digital</strong><br><!-- COPY: one line, "On-Page SEO Specialist, 2019–2022" per content-brief.md -->
     </div>
   </section>
 
@@ -500,19 +545,19 @@ git commit -m "feat: add mandatory security headers for Cloudflare Pages"
     <h2><!-- COPY: "What I Do" section heading --></h2>
     <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:1.25rem;">
       <div class="card" style="background:var(--ink);color:var(--bg);border-color:var(--ink);">
-        <span class="eyebrow" style="color:var(--accent);">What I Do</span>
-        <h3><!-- COPY: SEO & Growth Strategy --></h3>
-        <p style="opacity:.85;"><!-- COPY: 1-2 sentences --></p>
+        <span class="eyebrow" style="color:var(--accent);">Core Skill</span>
+        <h3><!-- COPY: Technical & On-Page SEO Audits --></h3>
+        <p style="opacity:.85;"><!-- COPY: 1-2 sentences, tools from content-brief.md (Ahrefs, Screaming Frog, etc.) --></p>
       </div>
       <div class="card">
-        <span class="eyebrow">Delivery</span>
-        <h3><!-- COPY: Web Systems --></h3>
-        <p><!-- COPY: 1-2 sentences, references CopperBuilds --></p>
+        <span class="eyebrow">Core Skill</span>
+        <h3><!-- COPY: Lead & Decision-Maker Research --></h3>
+        <p><!-- COPY: 1-2 sentences, LinkedIn Sales Navigator/Skrapp per content-brief.md --></p>
       </div>
       <div class="card">
-        <span class="eyebrow">Delivery</span>
-        <h3><!-- COPY: Automation --></h3>
-        <p><!-- COPY: 1-2 sentences, references GHL --></p>
+        <span class="eyebrow">Core Skill</span>
+        <h3><!-- COPY: WordPress Site Builds --></h3>
+        <p><!-- COPY: 1-2 sentences, from content-brief.md's Skills & Tools --></p>
       </div>
     </div>
   </section>
@@ -528,12 +573,12 @@ git commit -m "feat: add mandatory security headers for Cloudflare Pages"
 </html>
 ```
 
-- [ ] **Step 2: Run `/impeccable craft` to draft every `<!-- COPY: ... -->` block, using `content-brief.md` facts and the SEO seed above — no invented facts, no invented stats. Replace each comment with the drafted copy in place.**
+- [ ] **Step 2: Run `/impeccable craft` to draft every `<!-- COPY: ... -->` block, using `content-brief.md` facts and the SEO seed above — no invented facts, no invented stats, no mention of CopperBuilds/GHL/SMM. Replace each comment with the drafted copy in place.**
 
-- [ ] **Step 3: Verify no COPY placeholders remain**
+- [ ] **Step 3: Verify no COPY placeholders remain and no excluded-venture mentions leaked in**
 
-Run: `grep -c "COPY:" index.html`
-Expected: `0`
+Run: `grep -c "COPY:" index.html` → expect `0`
+Run: `grep -ci "copperbuilds\|GHL\|SMM" index.html` → expect `0`
 
 - [ ] **Step 4: Run the Vale gate**
 
@@ -544,7 +589,7 @@ Expected: 0 errors (warnings judged case-by-case per the vale-check skill — fi
 
 - [ ] **Step 6: Visual check in the browser**
 
-Run: `node serve.mjs` (background), then load `http://localhost:3000/` — confirm nav renders, hero reads correctly, no `--rule`/`--accent` literal strings visible (a sign the CSS didn't load), all 3 service cards render without a symmetric-grid collapse (the lead card should look visually heavier than the other two).
+Run: `node serve.mjs` (background), then load `http://localhost:3000/` — confirm nav renders, hero reads correctly, no `--rule`/`--accent` literal strings visible (a sign the CSS didn't load), all 3 skill cards render without a symmetric-grid collapse (the lead card should look visually heavier than the other two).
 
 - [ ] **Step 7: Commit**
 
@@ -562,15 +607,15 @@ git commit -m "feat: add Home page with drafted copy, Vale-gated"
 - Create: `luisecharri/about.html`
 
 **Interfaces:**
-- Consumes: same as Task 7, plus bio facts from `content-brief.md` Open Question 2 (must be answered before this task starts — if still blank, stop and ask the user before writing bio copy)
+- Consumes: same as Task 7, plus the full work-experience/education facts in `content-brief.md` (already resolved — no open questions remain)
 
-**SEO seed:** primary target `About Luis Echarri`; supports the same "Growth Strategist" positioning as Home.
+**SEO seed:** primary target `About Luis Echarri — SEO Specialist`. **No mention of CopperBuilds/GHL/SMM anywhere on this page.**
 
 - [ ] **Step 1: Write the HTML skeleton (same `<head>`/nav/footer boilerplate as Task 7's index.html, only `<title>`, meta description, and `<main>` differ)**
 
 ```html
 <!-- <head> identical to index.html except: -->
-<title>About — Luis Echarri</title>
+<title>About — Luis Echarri, SEO Specialist</title>
 <meta name="description" content="<!-- COPY: 1-sentence meta description -->">
 
 <!-- nav/noscript identical to index.html -->
@@ -578,30 +623,35 @@ git commit -m "feat: add Home page with drafted copy, Vale-gated"
 <main>
   <section class="container" style="padding:4rem 0 3rem;max-width:640px;">
     <span class="eyebrow">About</span>
-    <h1><!-- COPY: e.g. "Luis Echarri" or a bio-led headline --></h1>
-    <p><!-- COPY: paragraph 1, bio from content-brief.md Open Question 2 --></p>
-    <p><!-- COPY: paragraph 2, how he got into growth/SEO work --></p>
+    <h1><!-- COPY: e.g. "About Luis" --></h1>
+    <p><!-- COPY: paragraph 1, Professional Summary from content-brief.md, near-verbatim --></p>
+    <p><!-- COPY: paragraph 2, career progression — Convergys technical support into SEO (BIG Catch Digital) into Salience --></p>
   </section>
 
   <section class="container" style="padding:0 0 3rem;max-width:640px;">
-    <h2><!-- COPY: e.g. "What I Run" --></h2>
+    <h2><!-- COPY: e.g. "Experience" --></h2>
     <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:1rem;">
-      <li class="card"><strong>CopperBuilds</strong> — <!-- COPY: one line --></li>
-      <li class="card"><strong>GHL Automation</strong> — <!-- COPY: one line --></li>
-      <li class="card"><strong>SMM</strong> — <!-- COPY: one line --></li>
+      <li class="card"><strong>Salience</strong> — <!-- COPY: SEO Auditor / Internet Researcher, Apr 2022 – Aug 2026, 2-3 real bullets from content-brief.md --></li>
+      <li class="card"><strong>BIG Catch Digital</strong> — <!-- COPY: SEO Specialist (On-Page), Jan 2019 – Mar 2022, 2-3 real bullets --></li>
+      <li class="card"><strong>Convergys (Time Warner Cable)</strong> — <!-- COPY: Tier 2 Technical Support, Oct 2012 – Dec 2016, 1-2 real bullets --></li>
     </ul>
+  </section>
+
+  <section class="container" style="padding:0 0 3rem;max-width:640px;">
+    <h2><!-- COPY: e.g. "Education" --></h2>
+    <p><!-- COPY: both degrees from content-brief.md, one line each --></p>
   </section>
 </main>
 
 <!-- footer identical to index.html -->
 ```
 
-- [ ] **Step 2: Run `/impeccable craft` for every `<!-- COPY: ... -->` block using `content-brief.md` facts. If Open Question 2 is still unanswered, stop this task and ask the user for the bio facts before proceeding — do not invent biographical details.**
+- [ ] **Step 2: Run `/impeccable craft` for every `<!-- COPY: ... -->` block using `content-brief.md` facts only — real roles, real dates, real bullets, no invention.**
 
-- [ ] **Step 3: Verify no placeholders remain**
+- [ ] **Step 3: Verify no placeholders remain and no excluded-venture mentions leaked in**
 
-Run: `grep -c "COPY:" about.html`
-Expected: `0`
+Run: `grep -c "COPY:" about.html` → expect `0`
+Run: `grep -ci "copperbuilds\|GHL\|SMM" about.html` → expect `0`
 
 - [ ] **Step 4: Run the Vale gate, fix errors, re-run until it passes**
 
@@ -615,7 +665,7 @@ Expected: 0 errors
 ```bash
 cd luisecharri
 git add about.html
-git commit -m "feat: add About page, Vale-gated"
+git commit -m "feat: add About page with real experience timeline, Vale-gated"
 ```
 
 ---
@@ -628,13 +678,13 @@ git commit -m "feat: add About page, Vale-gated"
 **Interfaces:**
 - Consumes: same as Task 7
 
-**SEO seed:** primary target `SEO & Growth Strategy Services`.
+**SEO seed:** primary target `SEO Specialist Skills & Services`. **No mention of CopperBuilds/GHL/SMM anywhere on this page — Skills & Tools content only, sourced from content-brief.md.**
 
 - [ ] **Step 1: Write the HTML skeleton**
 
 ```html
 <!-- <head> identical pattern to index.html: -->
-<title>Services — Luis Echarri, Growth Strategist</title>
+<title>Services — Luis Echarri, SEO Specialist</title>
 <meta name="description" content="<!-- COPY -->">
 
 <!-- nav/noscript identical -->
@@ -642,24 +692,25 @@ git commit -m "feat: add About page, Vale-gated"
 <main>
   <section class="container" style="padding:4rem 0 3rem;max-width:640px;">
     <span class="eyebrow">What I Do</span>
-    <h1><!-- COPY: headline, must contain "SEO & Growth Strategy" --></h1>
-    <p><!-- COPY: 2-3 sentence intro --></p>
+    <h1><!-- COPY: headline, must contain "SEO" and a skill term --></h1>
+    <p><!-- COPY: 2-3 sentence intro, grounded in content-brief.md's Skills & Tools --></p>
   </section>
 
   <section class="container" style="padding:0 0 3rem;display:flex;flex-direction:column;gap:1.5rem;">
     <div class="card">
-      <h2><!-- COPY: SEO & Growth Strategy --></h2>
-      <p><!-- COPY: what this covers, process --></p>
+      <span class="eyebrow">Core Skill</span>
+      <h2><!-- COPY: Technical & On-Page SEO Audits --></h2>
+      <p><!-- COPY: what this covers — Ahrefs, Screaming Frog, Siteliner, PageSpeed Insights, title/meta/H1 fixes, from content-brief.md --></p>
     </div>
     <div class="card" style="margin-left:2.5rem;">
-      <span class="eyebrow">Delivered via CopperBuilds</span>
-      <h2><!-- COPY: Web Systems --></h2>
-      <p><!-- COPY: what this covers --></p>
+      <span class="eyebrow">Core Skill</span>
+      <h2><!-- COPY: Lead & Decision-Maker Research --></h2>
+      <p><!-- COPY: LinkedIn Sales Navigator, Skrapp, Excel validation, from content-brief.md --></p>
     </div>
     <div class="card" style="margin-left:2.5rem;">
-      <span class="eyebrow">Delivered via GHL Automation</span>
-      <h2><!-- COPY: Automation & CRM --></h2>
-      <p><!-- COPY: what this covers --></p>
+      <span class="eyebrow">Core Skill</span>
+      <h2><!-- COPY: WordPress Site Builds --></h2>
+      <p><!-- COPY: builds and launches full sites from scratch, from content-brief.md --></p>
     </div>
   </section>
 
@@ -671,14 +722,14 @@ git commit -m "feat: add About page, Vale-gated"
 <!-- footer identical -->
 ```
 
-(The staggered `margin-left` on the two delivery-channel cards is the required asymmetric moment — SEO & Growth Strategy stays full-width as the lead service, the two delivery channels visually nest under it.)
+(The staggered `margin-left` on the two supporting-skill cards is the required asymmetric moment — Technical & On-Page SEO Audits stays full-width as the lead skill, the other two visually nest under it.)
 
 - [ ] **Step 2: Run `/impeccable craft` for every `<!-- COPY: ... -->` block using `content-brief.md` facts**
 
-- [ ] **Step 3: Verify no placeholders remain**
+- [ ] **Step 3: Verify no placeholders remain and no excluded-venture mentions leaked in**
 
-Run: `grep -c "COPY:" services.html`
-Expected: `0`
+Run: `grep -c "COPY:" services.html` → expect `0`
+Run: `grep -ci "copperbuilds\|GHL\|SMM" services.html` → expect `0`
 
 - [ ] **Step 4: Run the Vale gate, fix errors, re-run until it passes**
 
@@ -692,7 +743,7 @@ Expected: 0 errors
 ```bash
 cd luisecharri
 git add services.html
-git commit -m "feat: add Services page, Vale-gated"
+git commit -m "feat: add Services page (real skills from resume), Vale-gated"
 ```
 
 ---
@@ -703,15 +754,15 @@ git commit -m "feat: add Services page, Vale-gated"
 - Create: `luisecharri/work.html`
 
 **Interfaces:**
-- Consumes: same as Task 7, plus confirmed live work-sample links from `content-brief.md` Open Question 3
+- Consumes: same as Task 7. **No work-sample links exist yet — content-brief.md confirms samples are deferred. Do not substitute CopperBuilds, GHL, SMM, or any placeholder card.**
 
-**SEO seed:** primary target `Luis Echarri — Work & Case Studies`.
+**SEO seed:** primary target `Luis Echarri — SEO Process & Approach`.
 
-- [ ] **Step 1: Write the HTML skeleton**
+- [ ] **Step 1: Write the HTML skeleton — process/methodology content only, no sample-work cards**
 
 ```html
 <!-- <head> identical pattern -->
-<title>Work — Luis Echarri</title>
+<title>Work — Luis Echarri, SEO Specialist</title>
 <meta name="description" content="<!-- COPY -->">
 
 <!-- nav/noscript identical -->
@@ -720,48 +771,43 @@ git commit -m "feat: add Services page, Vale-gated"
   <section class="container" style="padding:4rem 0 3rem;max-width:640px;">
     <span class="eyebrow">Work</span>
     <h1><!-- COPY: headline --></h1>
-    <p><!-- COPY: 2-3 sentences, honest framing — no invented metrics, links speak for themselves --></p>
-  </section>
-
-  <section class="container" style="padding:0 0 3rem;display:flex;flex-direction:column;gap:1.5rem;">
-    <!-- one .card per confirmed live link from content-brief.md Open Question 3 -->
-    <a class="card" href="https://copperbuilds.com/" target="_blank" rel="noopener" style="text-decoration:none;display:block;">
-      <span class="eyebrow">CopperBuilds</span>
-      <h2><!-- COPY: what this venture is, one line --></h2>
-      <p><!-- COPY: 1-2 sentences on the work --></p>
-    </a>
-    <!-- repeat card block per additional confirmed link; if none confirmed beyond CopperBuilds, this is the only card -->
+    <p><!-- COPY: 1 honest sentence — sample work is being gathered and will be added here; no fabricated content --></p>
   </section>
 
   <section class="container" style="padding:0 0 3rem;max-width:640px;">
-    <h2><!-- COPY: "How I Work" --></h2>
-    <p><!-- COPY: process/methodology paragraph — substitutes for quantified case-study proof per spec --></p>
+    <h2><!-- COPY: "How I Approach an Audit" or similar --></h2>
+    <p><!-- COPY: process paragraph grounded in real Salience/BIG Catch Digital bullets from content-brief.md — e.g. audit tools used, how findings become a report, how decision-makers get researched. Real process, not invented case studies. --></p>
+  </section>
+
+  <section class="container" style="padding:0 0 3rem;max-width:640px;">
+    <a class="btn btn-primary" href="/contact"><!-- COPY: CTA label --></a>
   </section>
 </main>
 
 <!-- footer identical -->
 ```
 
-- [ ] **Step 2: Run `/impeccable craft` for every `<!-- COPY: ... -->` block. Only include work-sample cards for links confirmed live in `content-brief.md` — never link an unconfirmed or dead URL.**
+- [ ] **Step 2: Run `/impeccable craft` for every `<!-- COPY: ... -->` block, grounded only in real experience bullets from `content-brief.md`. Confirm zero sample-work cards were added.**
 
-- [ ] **Step 3: Verify no placeholders remain and every linked URL is one confirmed in content-brief.md**
+- [ ] **Step 3: Verify no placeholders remain, no excluded-venture mentions, and no sample cards were added**
 
 Run: `grep -c "COPY:" work.html` → expect `0`
-Run: `grep -o 'href="https://[^"]*"' work.html` → manually cross-check each URL against `content-brief.md`'s confirmed list
+Run: `grep -ci "copperbuilds\|GHL\|SMM" work.html` → expect `0`
+Run: `grep -c 'class="card"' work.html` → expect `0` (no sample-work cards exist yet — if this is nonzero, a card was added that shouldn't exist)
 
 - [ ] **Step 4: Run the Vale gate, fix errors, re-run until it passes**
 
 Run: `vale --config=.vale.ini work.html`
 Expected: 0 errors
 
-- [ ] **Step 5: Visual check via `node serve.mjs` → `http://localhost:3000/work`, click through every external link to confirm it loads (not a 404)**
+- [ ] **Step 5: Visual check via `node serve.mjs` → `http://localhost:3000/work`**
 
 - [ ] **Step 6: Commit**
 
 ```bash
 cd luisecharri
 git add work.html
-git commit -m "feat: add Work page, Vale-gated"
+git commit -m "feat: add Work page (process content, samples deferred), Vale-gated"
 ```
 
 ---
@@ -772,9 +818,9 @@ git commit -m "feat: add Work page, Vale-gated"
 - Create: `luisecharri/contact.html`
 
 **Interfaces:**
-- Consumes: same as Task 7, plus the contact method confirmed in `content-brief.md` Open Question 1
+- Consumes: same as Task 7, plus the confirmed contact block in `content-brief.md`: email `valuisantonioecharrijr@gmail.com`, phone `+63 977 329 3969`, LinkedIn `https://www.linkedin.com/in/luisecharri/`
 
-- [ ] **Step 1: Write the HTML skeleton — a direct `mailto:`/`tel:` CTA, no third-party form service. (A form handler like Web3Forms needs a signup + API key that don't exist yet — that's real scope, not this phase; a working direct-contact link beats a broken or blocked form.)**
+- [ ] **Step 1: Write the HTML skeleton — direct `mailto:`/`tel:`/LinkedIn CTAs, no third-party form service. (A form handler like Web3Forms needs a signup + API key that don't exist yet — that's real scope, not this phase; working direct-contact links beat a broken or blocked form.)**
 
 ```html
 <!-- <head> identical pattern -->
@@ -789,9 +835,9 @@ git commit -m "feat: add Work page, Vale-gated"
     <h1><!-- COPY: headline --></h1>
     <p><!-- COPY: 1-2 sentences --></p>
     <div style="display:flex;flex-direction:column;gap:.75rem;margin-top:1.5rem;">
-      <a class="btn btn-primary" href="mailto:<!-- EMAIL from content-brief.md Open Question 1 -->" style="width:fit-content;">Email Me</a>
-      <!-- if a phone number was confirmed in Open Question 1: -->
-      <a class="btn btn-ghost" href="tel:<!-- PHONE -->" style="width:fit-content;">Call / WhatsApp</a>
+      <a class="btn btn-primary" href="mailto:valuisantonioecharrijr@gmail.com" style="width:fit-content;">Email Me</a>
+      <a class="btn btn-ghost" href="tel:+639773293969" style="width:fit-content;">Call / WhatsApp</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/luisecharri/" target="_blank" rel="noopener" style="width:fit-content;">Connect on LinkedIn</a>
     </div>
   </section>
 </main>
@@ -799,12 +845,14 @@ git commit -m "feat: add Work page, Vale-gated"
 <!-- footer identical -->
 ```
 
-- [ ] **Step 2: Run `/impeccable craft` for every `<!-- COPY: ... -->` block. Insert the exact email/phone confirmed in `content-brief.md` Open Question 1 — never a placeholder or an unconfirmed value.**
+- [ ] **Step 2: Run `/impeccable craft` for the headline and intro `<!-- COPY: ... -->` blocks only — the contact links above are already the exact confirmed values, do not alter them.**
 
-- [ ] **Step 3: Verify no placeholders remain and the contact link matches content-brief.md exactly**
+- [ ] **Step 3: Verify no placeholders remain and every contact link matches content-brief.md exactly**
 
 Run: `grep -c "COPY:" contact.html` → expect `0`
-Run: `grep "mailto:" contact.html` → confirm it matches the confirmed email exactly, no typos
+Run: `grep -c "mailto:valuisantonioecharrijr@gmail.com" contact.html` → expect `1`
+Run: `grep -c "tel:+639773293969" contact.html` → expect `1`
+Run: `grep -c "linkedin.com/in/luisecharri" contact.html` → expect `1`
 
 - [ ] **Step 4: Run the Vale gate, fix errors, re-run until it passes**
 
@@ -818,7 +866,7 @@ Expected: 0 errors
 ```bash
 cd luisecharri
 git add contact.html
-git commit -m "feat: add Contact page, Vale-gated"
+git commit -m "feat: add Contact page with confirmed real contact links, Vale-gated"
 ```
 
 ---
@@ -874,6 +922,8 @@ Go through the spec's "Success Criteria" section line by line and confirm each i
 - [ ] Noscript fallback on every page (Step 1)
 - [ ] Vale passed on every page (Tasks 7–11 Step 4 each)
 - [ ] No fabricated stats anywhere — re-read every page's copy once more to confirm
+- [ ] Zero mentions of CopperBuilds/GHL/SMM anywhere: `for f in index about services work contact; do echo "$f: $(grep -ci "copperbuilds\|GHL\|SMM" $f.html)"; done` — every page must report `0`
+- [ ] No sample-work cards on the Work page: `grep -c 'class="card"' work.html` → `0`
 
 - [ ] **Step 9: Report the live URL and any deferred items (dark mode, blog, custom domain, additional work samples) explicitly to the user — do not silently omit them**
 
@@ -882,6 +932,7 @@ Go through the spec's "Success Criteria" section line by line and confirm each i
 ## Execution Notes
 
 - Tasks 1–6 have no user-facing content and can run in one sitting.
-- Task 1 (content brief) blocks Tasks 7–11 — every copy-writing step depends on real answers, not invented ones. If the user hasn't answered the open questions by the time Task 7 starts, stop and ask before drafting any copy.
+- Task 1 (content brief) blocks Tasks 7–11 — every fact traces to `job-hunter/profile/profile.md` or the confirmed contact block, both already resolved as of 2026-08-29. No further user Q&A is needed before starting Task 7.
 - Tasks 7–11 are independent of each other except for shared nav/footer (Task 5) and tokens (Task 2) — they can be done in any order, though Home (Task 7) first gives the clearest sense of whether the design system reads well before repeating the pattern 4 more times.
+- The single highest-risk regression across every task: a venture mention (CopperBuilds/GHL/SMM) leaking into copy, since 4 of the 5 pages were adapted from an earlier draft that centered on those ventures. Every task's grep check for this exists specifically to catch that regression — do not skip it.
 
