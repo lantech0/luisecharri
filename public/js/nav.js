@@ -1,5 +1,5 @@
 (function () {
-  var path = window.location.pathname;
+  var path = window.location.pathname.replace(/\/$/, '');
   var page = path.split('/').pop() || '';
 
   function isActive(href) {
@@ -7,12 +7,17 @@
     return page === href.replace(/^\//, '');
   }
 
-  function link(href, label) {
+  function link(href, label, opts) {
+    opts = opts || {};
     var active = isActive(href);
-    var style = active
-      ? 'color:var(--accent);font-weight:600;text-decoration:none;font-size:.9375rem;'
-      : 'color:var(--ink);text-decoration:none;font-size:.9375rem;transition:color .15s;';
     var aria = active ? ' aria-current="page"' : '';
+    if (opts.button) {
+      var btnStyle = 'text-decoration:none;' + (active ? 'box-shadow:0 0 0 2px var(--ink);' : '');
+      return '<a href="' + href + '" class="btn btn-primary" style="' + btnStyle + '"' + aria + '>' + label + '</a>';
+    }
+    var style = active
+      ? 'color:var(--accent-text);font-weight:600;text-decoration:none;font-size:.9375rem;'
+      : 'color:var(--ink);text-decoration:none;font-size:.9375rem;transition:color .15s;';
     return '<a href="' + href + '" style="' + style + '"' + aria + '>' + label + '</a>';
   }
 
@@ -24,7 +29,7 @@
         + link('/about', 'About')
         + link('/services', 'Services')
         + link('/work', 'Work')
-        + '<a href="/contact" class="btn btn-primary">Get in Touch</a>'
+        + link('/contact', 'Get in Touch', { button: true })
       + '</div>'
     + '</div>'
   + '</nav>';
