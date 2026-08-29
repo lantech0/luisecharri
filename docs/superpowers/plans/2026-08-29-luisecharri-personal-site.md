@@ -72,7 +72,7 @@ Each HTML page owns only its `<main>` content — nav/footer are shared via `js/
 
 ## Open questions — ASK THE USER, do not assume
 1. Contact method for the Contact page: reuse the CopperBuilds contact (luis.copperbuilds@gmail.com / +63 977 329 3969) or a different personal email/number?
-2. Bio facts for the About page: background, years in SEO/growth work, how you got into it, anything you want surfaced (do not invent — leave blank if unanswered and flag to the user before Task 7)
+2. Bio facts for the About page: background, years in SEO/growth work, how you got into it, anything you want surfaced (do not invent — leave blank if unanswered and flag to the user before Task 8)
 3. Any additional live work samples beyond CopperBuilds (a luisghl.com site, an SMM client site) to link on the Work page?
 4. Social links to include (LinkedIn, Facebook, etc.) — which ones are current and OK to publish?
 ```
@@ -81,8 +81,8 @@ Each HTML page owns only its `<main>` content — nav/footer are shared via `js/
 
 - [ ] **Step 3: Verify the brief has no unanswered required field**
 
-Run: `grep -c "^-" content-brief.md` — confirm every open question has a corresponding answer written below it (append an "## Answers" section under Step 2's edits).
-Expected: 4 answers present, zero blanks.
+Append an "## Answers" section under Step 2's edits. Q1 (contact method), Q2 (bio facts), and Q3 (work-sample links) are required — they gate Tasks 8, 10, and 11 respectively and must not be blank. Q4 (social links) is optional — record it if answered, but a blank Q4 does not block this task or any other.
+Expected: Q1, Q2, Q3 all have non-blank answers.
 
 - [ ] **Step 4: Commit**
 
@@ -215,7 +215,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
 - [ ] **Step 3: Verify tokens load correctly**
 
-Open `index.html` (once it exists in Task 6) in a browser and confirm computed `background-color` of `body` is `rgb(244, 243, 240)` via devtools — deferred to Task 11 cross-page QA since no HTML page exists yet at this step. For now, verify the file is syntactically valid:
+Open `index.html` (once it exists in Task 7) in a browser and confirm computed `background-color` of `body` is `rgb(244, 243, 240)` via devtools — deferred to Task 12 cross-page QA since no HTML page exists yet at this step. For now, verify the file is syntactically valid:
 
 Run: `node -e "require('fs').readFileSync('css/style.css','utf8')"` (just confirms the file reads without error; a linter is overkill for one stylesheet)
 Expected: no output, exit code 0
@@ -263,7 +263,7 @@ http.createServer((req, res) => {
 
 - [ ] **Step 2: Verify it serves**
 
-Run: `cd luisecharri && node serve.mjs &` then `curl -sI http://localhost:3000/` (once `index.html` exists in Task 6 — for now confirm the process starts without error and kill it)
+Run: `cd luisecharri && node serve.mjs &` then `curl -sI http://localhost:3000/` (once `index.html` exists in Task 7 — for now confirm the process starts without error and kill it)
 Expected: process starts, no crash; `Ctrl+C` / kill after confirming
 
 - [ ] **Step 3: Commit**
@@ -338,7 +338,7 @@ git commit -m "chore: add Vale style gate config"
 
   function isActive(href) {
     if (href === '/') return page === '' || page === 'index.html';
-    return page === href.replace(/^\//, '') + '.html';
+    return page === href.replace(/^\//, '');
   }
 
   function link(href, label) {
@@ -833,8 +833,8 @@ git commit -m "feat: add Contact page, Vale-gated"
 
 - [ ] **Step 1: Verify noscript fallback present on every page**
 
-Run: `for f in index about services work contact; do echo "$f: $(grep -c noscript $f.html)"; done` (or the PowerShell equivalent `foreach`)
-Expected: every page reports `2` (one opening context, one closing tag counted by `-c` on the literal string — adjust to `grep -c "<noscript>"` if the count looks off) — the key check is non-zero on every page
+Run: `for f in index about services work contact; do echo "$f: $(grep -c 'Main navigation (no-JS fallback)' $f.html)"; done` (or the PowerShell equivalent `foreach`)
+Expected: every page reports `1` — confirms the specific nav noscript fallback (not just any `<noscript>` tag, since the footer has its own separate block too)
 
 - [ ] **Step 2: Verify every internal nav link resolves (no 404s) using the local server**
 
