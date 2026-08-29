@@ -13,6 +13,7 @@ single accent used sparingly.
 | `--ink` | `#2A2F33` | charcoal-slate — focus/clarity, primary text |
 | `--accent` | `#B85C3E` | muted rust — decorative/non-text emphasis only (fails WCAG AA as text or text-bearing background; use `--accent-text` for those), ≤20% of composition |
 | `--accent-text` | `#A24F35` | darker rust — accent color for text and text-bearing button backgrounds (`.eyebrow`, `.btn-primary`); 5.11:1 against `--bg`, passes WCAG AA |
+| `--accent-on-dark` | `#D98A6A` | lighter rust — accent text on `--ink` backgrounds only (e.g. dark card eyebrows); 5.02:1 against `--ink`, passes WCAG AA |
 | `--bg` | `#F4F3F0` | cool-neutral off-white — never pure white |
 | `--soft` | `#EAE8E4` | tinted surface for stat bars / soft cards |
 | `--rule` | `rgba(42,47,51,.35)` | hairline borders/dividers — visible as an intentional line, not just decorative |
