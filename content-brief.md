@@ -37,6 +37,20 @@ clear communication.
 - Lead Research: LinkedIn Sales Navigator, Skrapp, Excel data validation
 - Content & Design: Canva, Adobe Premiere Pro, social media profile optimization
 
+## Additional self-reported skills (confirmed by Luis 2026-08-30)
+Built through broader hands-on SEO/web practice beyond what any single
+employer assigned — real skills, not tied to or described as any named
+business (per the venture-exclusion rule above, which still stands).
+- Keyword research & strategy
+- Content optimization / on-page content strategy
+- Technical SEO — site architecture, crawlability, indexation
+- Off-page SEO / link building
+- Local SEO — full package: Google Business Profile / GMB management,
+  local citations, map-pack visibility (extends the GBP/citation work
+  already listed under BIG Catch Digital, 2019–2022, into a standalone
+  broader skill)
+- Web development — beyond WordPress specifically: general site builds
+
 ## Education
 - BS Information Technology — Northern Negros State College of Science & Technology (2007–2011)
 - BS Secondary Education — La Carlota City College (2018–2019)
