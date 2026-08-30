@@ -47,32 +47,42 @@ Structural reference: **jennseo.com** — user wants our structure/density to
 match or beat hers, on our own palette (not her dark bg — that was tried and
 explicitly reverted; "it's not about the color" per user).
 
-## What's actually built right now (2026-08-30, latest commit `130a99e`)
+## What's actually built right now (2026-08-30, latest commit `4848857`)
 - **Home (`index.html`)** — most developed page. Has: badge
   ("Actively Seeking New Opportunities"), bold headline with an accent-highlighted
   phrase ("An SEO Hire Who *Finds What's Broken*—and Fixes It" — persuasive,
   reader-benefit framing, not just a job title), hero stat panel (floating-shadow
   card, real facts), 3 skill-teaser cards, a "Why Hire Me" 6-reason section, a
   "Tools & Tech" pill-tag showcase.
-- **About** — bio (2 paragraphs) + real Experience list (Salience, BIG Catch
-  Digital, Convergys, full bullets) + Education. Not yet given the same
-  persuasive-copy pass as Home.
-- **Services** — rewritten into 6 itemized skill categories (Full-Site SEO
-  Audits lead card + Keyword Research, Off-Page, Local SEO, Lead Research, Web
-  Dev in a 2-col grid), matching jennseo's bullet-list density. Not yet given
-  the "sell the reader" headline treatment Home got.
-- **Work** — process content restructured into a numbered 4-step sequence
-  (was flat prose). No sample-work cards yet (deferred — Luis hasn't provided
-  real samples).
-- **Contact** — email/phone/LinkedIn links (all confirmed real values) +
-  resume PDF download link. Home address was found in the resume PDF and
-  redacted via true PDF redaction (not just visual) before it shipped.
+- **About** — headline reframed around the diagnose-then-fix throughline
+  (Convergys → SEO), bio tightened, real Experience list (Salience, BIG Catch
+  Digital, Convergys, full bullets) + Education, now ends on a "Get in Touch"
+  CTA matching Services/Work. Given the same persuasive-copy pass as Home
+  (commit `4848857`, 2026-08-30).
+- **Services** — headline reframed ("Full-Package SEO—Not Just One Slice of
+  It"), every one of the 5 secondary skill cards now has a one-line
+  reader-benefit subtitle (previously bare bullet lists), closing CTA has a
+  benefit line above the button. Facts/bullets unchanged, only headline +
+  subtitle copy added.
+- **Work** — headline reframed ("The Same Four Steps, Every Time"), intro
+  tightened, closing CTA has a benefit line above the button. Still no
+  sample-work cards (deferred — Luis hasn't provided real samples).
+- **Contact** — headline reframed around immediate availability ("Ready to
+  Start—No Notice Period", ties to Home's Reason #06 fact, differently
+  worded to avoid cross-page repetition) + email/phone/LinkedIn links (all
+  confirmed real values) + resume PDF download link. Home address was found
+  in the resume PDF and redacted via true PDF redaction (not just visual)
+  before it shipped.
 
 ## Explicitly NOT done yet / open items for next session
-1. **About, Services, Work, Contact haven't gotten the same "sell, don't just
-   list" copy pass Home got.** User's direction: "make sure our content is
-   better than her content" — Home is closest to that bar now, the other 4
-   pages still read more like fact statements than persuasive copy in places.
+1. ~~About, Services, Work, Contact persuasive-copy pass~~ — **done 2026-08-30
+   (commit `4848857`)**. All 4 pages now match Home's "sell, don't just list"
+   bar: reframed headlines with an accent-highlighted phrase, benefit-driven
+   card subtitles on Services, tightened intros, CTA reinforcement lines.
+   Verified: Vale 0 errors, venture-mention grep 0 matches across all pages,
+   every new claim traced to `content-brief.md`, visually confirmed via
+   Playwright screenshots on all 4 pages (Playwright MCP working again this
+   session — claude-in-chrome still not connecting). Not re-pushed (see #3).
 2. **No live deploy yet.** Cloudflare project `luisecharri` exists (Workers
    Static Assets model — this is NOT classic Pages, and per 2026 Cloudflare
    direction, Pages is being phased out for new projects; don't waste time
