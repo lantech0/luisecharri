@@ -3,12 +3,13 @@
 Read this first before doing anything else on this project.
 
 ## Where the work lives
+- **Live site: https://portfolio.luisecharri.workers.dev** (deployed 2026-08-30,
+  commit `88ff14c`)
 - Repo: `github.com/lantech0/luisecharri`
 - Local: `C:\Users\User\LantechAI\luisecharri` (bare checkout on `main`)
-- **Active work is on branch `site-build`**, in the worktree at
-  `C:\Users\User\LantechAI\luisecharri\.worktrees\site-build`
-- `site-build` has been pushed to GitHub (backup only — not merged to `main` yet,
-  not deployed live)
+- `site-build` has been merged into `main` and both are pushed to GitHub.
+  `site-build` worktree at `C:\Users\User\LantechAI\luisecharri\.worktrees\site-build`
+  still exists but `main` is now the current/deployed state — check `main` first.
 - Full plan/spec/ledger: `docs/superpowers/plans/2026-08-29-luisecharri-personal-site.md`,
   `docs/superpowers/specs/2026-08-29-luisecharri-personal-site-design.md`,
   `.superpowers/sdd/2026-08-29-luisecharri-personal-site/progress.md` (the ledger —
@@ -82,19 +83,32 @@ explicitly reverted; "it's not about the color" per user).
    Verified: Vale 0 errors, venture-mention grep 0 matches across all pages,
    every new claim traced to `content-brief.md`, visually confirmed via
    Playwright screenshots on all 4 pages (Playwright MCP working again this
-   session — claude-in-chrome still not connecting). Not re-pushed (see #3).
-2. **No live deploy yet.** Cloudflare project `luisecharri` exists (Workers
-   Static Assets model — this is NOT classic Pages, and per 2026 Cloudflare
-   direction, Pages is being phased out for new projects; don't waste time
-   trying to switch to Pages, see `feedback_cloudflare_pages_not_workers.md`
-   memory). `wrangler.toml` is committed and correct for the Root
-   Directory=`/public` setting the user configured. Live URL will be something
-   like `luisecharri.<account-suffix>.workers.dev` — user was mid-exploring
-   whether to rename the account's workers.dev subdomain for a cleaner URL.
-   **Do not push/merge to `main` or trigger a deploy without asking first** —
-   user explicitly put Cloudflare on hold to focus on content/design.
-3. **`site-build` branch not merged to `main` or finished.** Still an open
-   feature branch. Don't merge without asking.
+   session — claude-in-chrome still not connecting).
+2. ~~No live deploy~~ — **done 2026-08-30.** `site-build` merged into `main`
+   (`63adbe8`), pushed, and deployed via `npx wrangler deploy` from
+   `luisecharri/public/`. **User decision (2026-08-30): staying on the free
+   `*.workers.dev` URL permanently — no custom domain purchase.** The worker
+   was renamed from `luisecharri` to `portfolio` (wrangler.toml `name` field)
+   to fix the awkward double-name `luisecharri.luisecharri.workers.dev` —
+   live URL is now `portfolio.luisecharri.workers.dev`. The old `luisecharri`
+   worker was deleted (`wrangler delete --name luisecharri`) to avoid a stale
+   duplicate deployment. All stale `luisecharri.pages.dev` references in
+   `og:url` tags, `robots.txt`, and `sitemap.xml` (leftover from before the
+   Pages→Workers switch, never actually correct) were also fixed to point at
+   the live `portfolio.luisecharri.workers.dev` domain — verified 0 survivors
+   via grep, and confirmed live via curl post-deploy.
+
+   Note for next session: Cloudflare Workers deploys need `CLOUDFLARE_ACCOUNT_ID`
+   set explicitly (`6336df30945f27f218a22ce77b5a9fc5` for the `luisecharri`
+   account, distinct from the `Lantech` agency account) since the login has
+   access to more than one account and `wrangler deploy` can't pick one
+   non-interactively. `wrangler login` (interactive/browser) was already done
+   this session — should still be valid, no need to redo unless it expires.
+3. ~~`site-build` branch not merged to `main`~~ — **done 2026-08-30.** Merged
+   and pushed (`63adbe8`), then two follow-up commits directly on `main`
+   (`98d6acf` worker rename, `88ff14c` domain reference fixes). `site-build`
+   worktree can be removed next session if no longer needed — nothing is
+   pending on it.
 4. Deferred minors from the final review (non-blocking, listed in the ledger):
    `.btn-ghost` border contrast slightly under WCAG 1.4.11 for UI boundaries,
    no `rel="canonical"` tags, no `og:image`, favicon data-URI has unencoded
@@ -114,11 +128,13 @@ explicitly reverted; "it's not about the color" per user).
   `feedback_cloudflare_pages_not_workers.md` in the memory folder.
 
 ## To resume tomorrow
-1. `cd C:\Users\User\LantechAI\luisecharri\.worktrees\site-build`
+1. `cd C:\Users\User\LantechAI\luisecharri` (main, not the site-build worktree —
+   everything is merged now)
 2. Read this file, then the ledger at
    `.superpowers/sdd/2026-08-29-luisecharri-personal-site/progress.md` for full
    decision history if needed.
-3. `node serve.mjs` to preview locally at `http://localhost:3000/`.
-4. Likely next step: apply the same persuasive-copy treatment from Home to
-   About/Services/Work/Contact, per open item #1 above — but confirm with the
-   user first rather than assuming.
+3. `node serve.mjs` to preview locally at `http://localhost:3000/`, or just
+   check the live site at https://portfolio.luisecharri.workers.dev.
+4. Everything in "Explicitly NOT done yet" above is resolved except #4
+   (deferred minors) and #5 (work samples) — pick one of those up, or ask
+   Luis what's next.
