@@ -114,6 +114,13 @@ explicitly reverted; "it's not about the color" per user).
    no `rel="canonical"` tags, no `og:image`, favicon data-URI has unencoded
    characters, `isActive()` doesn't special-case bare `.html` URLs.
 5. Work samples still deferred — Luis hasn't provided real ones yet.
+6. **Searchmetrics is now defunct as a standalone product** (acquired by
+   Conductor, Feb 2023 — no longer sold separately). It's still listed as a
+   real tool across About/Services/Work/Home (Tools & Tech), since it's true
+   past work history at Salience. Luis's call 2026-08-30: **leave it as-is
+   for now** — real historical fact, not urgent — but he flagged wanting to
+   revisit this later. Options on the table when he does: leave as-is,
+   relabel to "Conductor (formerly Searchmetrics)", or remove it.
 
 ## Key user preferences learned this session
 - Wants the site's persuasive quality to beat jennseo.com's, using only real
@@ -136,5 +143,7 @@ explicitly reverted; "it's not about the color" per user).
 3. `node serve.mjs` to preview locally at `http://localhost:3000/`, or just
    check the live site at https://portfolio.luisecharri.workers.dev.
 4. Everything in "Explicitly NOT done yet" above is resolved except #4
-   (deferred minors) and #5 (work samples) — pick one of those up, or ask
-   Luis what's next.
+   (deferred minors), #5 (work samples), and #6 (Searchmetrics relabel
+   decision) — pick one of those up, or ask Luis what's next. He said he
+   wants to keep improving the site generally, no specific next task locked
+   in yet.
