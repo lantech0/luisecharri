@@ -65,10 +65,38 @@ business (per the venture-exclusion rule above, which still stands).
   runs. Ruled out 2026-08-29: reads as a flight-risk/conflict-of-interest
   signal to a hiring agency. This applies to every page, not just Work.
 
-## Work samples
-None yet — deferred. Luis will provide real sample work in a follow-up
-session. Task 10 (Work page) ships with process/methodology content only,
-no sample cards, no substitute content standing in for real samples.
+## Work samples (added 2026-09-07)
+
+1. **Salience — UK Baby Products Sector Report** (case study: methodology and
+   scope only — no raw numbers, no report screenshots, confirmed with Luis
+   2026-09-07)
+   - A recurring sector-level competitive intelligence report produced at
+     Salience covering the UK baby products retail market.
+   - Analyzed: brand visibility vs. domain authority, brand reach scoring
+     (organic search demand + owned social signals), keyword opportunity
+     mapping (high-competition terms vs. underserved high-volume terms), page
+     speed benchmarking across category-leading retailers, customer
+     review/rating scoring, and year-over-year visibility trend tracking
+     (winners/losers).
+   - Tools: Ahrefs, Google Trends, PageSpeed Insights, Google Analytics — the
+     same tool stack already listed under Salience in Work Experience above.
+   - Scope: dozens of UK baby-product retail brands and their product-level
+     data.
+
+2. **My SEO Audit Framework** (self-reported methodology, confirmed by Luis
+   2026-09-07 as representative of how he actually audits a site — not tied
+   to or described as any named business, per the venture-exclusion rule
+   above, which still stands)
+   - Technical Foundation — crawlability, indexation, sitemaps, SSL, page
+     speed
+   - On-Page & Site Architecture — title tags, meta descriptions, headings,
+     internal linking, canonicals
+   - Content Quality — topical coverage, freshness, uniqueness
+   - Schema & Structured Data — Organization, LocalBusiness, Service, FAQ
+   - Local SEO — NAP consistency, Google Business Profile, citations, reviews
+   - Backlinks — profile health, toxic-link flags, outreach pipeline
+   - GEO / AI Search Visibility — llms.txt, AI crawler access, brand presence
+     in ChatGPT / Perplexity / Google AI Overviews
 
 ## Photo
 None supplied — hero and every page stay text-led.

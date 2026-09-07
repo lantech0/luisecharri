@@ -136,6 +136,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   background:var(--soft);
 }
 
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:1.5rem;border-top:1px solid var(--rule);}
+.detail-grid > div{padding:1rem 1.25rem 1rem 0;border-bottom:1px solid var(--rule);}
+.detail-grid strong{
+  display:block;font-family:"IBM Plex Mono",monospace;font-size:.8125rem;
+  letter-spacing:.02em;color:var(--ink);margin-bottom:.3rem;
+}
+.detail-grid span{display:block;font-size:.8125rem;opacity:.75;}
+
+.practice-line{
+  font-size:.8125rem;opacity:.75;margin:.75rem 0 0;font-style:italic;
+}
+
 .stagger-right{margin-left:2.5rem;}
 
 @media (max-width:800px){
@@ -153,5 +165,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   .skills-grid{grid-template-columns:1fr;}
   .skills-grid-2{grid-template-columns:1fr;}
   .reasons-grid{grid-template-columns:1fr;}
+  .detail-grid{grid-template-columns:1fr;}
   .stagger-right{margin-left:0;}
 }

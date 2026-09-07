@@ -113,7 +113,15 @@ explicitly reverted; "it's not about the color" per user).
    `.btn-ghost` border contrast slightly under WCAG 1.4.11 for UI boundaries,
    no `rel="canonical"` tags, no `og:image`, favicon data-URI has unencoded
    characters, `isActive()` doesn't special-case bare `.html` URLs.
-5. Work samples still deferred — Luis hasn't provided real ones yet.
+5. ~~Work samples still deferred~~ — **done 2026-09-07.** Added two real
+   samples to the Work page: a Salience case study (UK Baby Products sector
+   report — methodology/scope only, no raw client numbers or screenshots,
+   confirmed with Luis) and "My SEO Audit Framework" (self-reported
+   methodology, confirmed by Luis as representative — not tied to any named
+   business, per the venture-exclusion rule). `content-brief.md` updated as
+   the fact source first. Verified: Vale 0 errors, venture-mention grep 0
+   matches, visually confirmed via Playwright screenshots (desktop 1280px +
+   mobile 375px, no overflow).
 6. **Searchmetrics is now defunct as a standalone product** (acquired by
    Conductor, Feb 2023 — no longer sold separately). It's still listed as a
    real tool across About/Services/Work/Home (Tools & Tech), since it's true
